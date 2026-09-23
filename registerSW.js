@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/eha-rouster-maker/sw.js', { scope: '/eha-rouster-maker/' })})}

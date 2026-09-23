@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EHA_ Rouster Maker — تحميل البرنامج</title>
+<meta name="description" content="استخدم برنامج جدول ورديات الموظفين الشهري مباشرة من المتصفح، أو حمّل نسخة أندرويد أو الحاسب الشخصي، أو ثبّته على الآيفون." />
+<meta name="theme-color" content="#1e293b" />
+<link rel="icon" type="image/png" href="pwa-192x192.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<style>
+  :root {
+    --bg: #f1f5f9; --card: #ffffff; --ink: #0f172a; --muted: #475569; --line: #e2e8f0;
+    --navy: #1e293b; --blue: #2563eb; --green: #059669; --android: #16a34a; --pc: #0369a1; --ios: #334155;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1f2a44; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Segoe UI', Tahoma, 'Cairo', system-ui, -apple-system, sans-serif; line-height: 1.7;
+  }
+  header { background: var(--navy); color: #fff; padding: 28px 16px 64px; text-align: center; }
+  header img { width: 72px; height: 72px; border-radius: 16px; background: #fff; padding: 6px; }
+  header h1 { margin: 10px 0 4px; font-size: 1.6rem; }
+  header p { margin: 0; color: #cbd5e1; font-size: .98rem; }
+  main { max-width: 980px; margin: -44px auto 40px; padding: 0 16px; }
+  .hero {
+    background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 20px;
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px;
+    box-shadow: 0 8px 24px rgba(15, 23, 42, .08);
+  }
+  .hero h2 { margin: 0; font-size: 1.15rem; }
+  .hero p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+    padding: 11px 18px; border-radius: 10px; font-weight: 700; color: #fff; background: var(--blue);
+    border: 0; font-size: 1rem; cursor: pointer; white-space: nowrap;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-top: 18px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 18px; display: flex; flex-direction: column; }
+  .card h3 { margin: 0 0 4px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+  .card .sub { color: var(--muted); font-size: .88rem; margin: 0 0 12px; }
+  .card ol { margin: 0 0 14px; padding-inline-start: 20px; font-size: .93rem; }
+  .card li { margin-bottom: 4px; }
+  .card .note { font-size: .82rem; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 8px 10px; margin: 0 0 14px; }
+  .card .btn { margin-top: auto; }
+  .android .btn { background: var(--android); }
+  .pc .btn { background: var(--pc); }
+  .ios .btn { background: var(--ios); }
+  .tag { font-size: .72rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--bg); color: var(--muted); }
+  .qr { text-align: center; margin-top: 18px; color: var(--muted); font-size: .85rem; }
+  .qr img { width: 150px; height: 150px; background: #fff; padding: 6px; border-radius: 10px; display: block; margin: 0 auto 6px; }
+  footer { text-align: center; color: var(--muted); font-size: .8rem; padding: 0 16px 28px; }
+  svg { width: 22px; height: 22px; flex-shrink: 0; }
+</style>
+</head>
+<body>
+<header>
+  <img src="pwa-192x192.png" alt="" />
+  <h1>EHA_ Rouster Maker</h1>
+  <p>برنامج إنشاء جدول ورديات الموظفين الشهري — الهيئة العامة للرعاية الصحية</p>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <h2>استخدام البرنامج مباشرة من المتصفح</h2>
+      <p>دون تثبيت، على الحاسب أو الهاتف. تُحفظ الجداول على جهازك، ويعمل البرنامج بعد أول فتح حتى دون إنترنت.</p>
+    </div>
+    <a class="btn" href="./">فتح البرنامج الآن</a>
+  </section>
+
+  <div class="grid">
+    <section class="card pc">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        الحاسب الشخصي <span class="tag">Windows</span>
+      </h3>
+      <p class="sub">ملف تثبيت واحد — نسخة كاملة تعمل دون إنترنت مع الطباعة المتقدمة وحفظ PDF و Excel.</p>
+      <ol>
+        <li>اضغط زر التحميل وانتظر اكتمال تحميل الملف.</li>
+        <li>افتح الملف <b>EHA_Rouster_Maker_Setup.exe</b>.</li>
+        <li>إذا ظهرت رسالة «Windows protected your PC» اضغط <b>More info</b> ثم <b>Run anyway</b>.</li>
+        <li>اختر مكان التثبيت ثم اضغط <b>Install</b>، وسيظهر اختصار البرنامج على سطح المكتب.</li>
+      </ol>
+      <p class="note">تُحفظ الجداول في ذاكرة البرنامج على الجهاز ولا تُحذف عند التحديث أو إعادة التثبيت.</p>
+      <a class="btn" data-asset="EHA_Rouster_Maker_Setup.exe" href="#">تحميل نسخة الحاسب</a>
+    </section>
+
+    <section class="card android">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        هواتف أندرويد <span class="tag">APK</span>
+      </h3>
+      <p class="sub">تطبيق كامل يعمل دون إنترنت، والتصدير والطباعة عبر قائمة المشاركة.</p>
+      <ol>
+        <li>افتح هذه الصفحة من الهاتف واضغط زر التحميل.</li>
+        <li>افتح الملف <b>EHA_Rouster_Maker.apk</b> بعد اكتمال تحميله.</li>
+        <li>إذا طُلب السماح بالتثبيت من هذا المصدر: اضغط <b>الإعدادات</b> وفعّل <b>السماح من هذا المصدر</b>، ثم ارجع واضغط <b>تثبيت</b>.</li>
+        <li>إذا ظهر تنبيه Google Play Protect اختر <b>التثبيت على أي حال</b>.</li>
+      </ol>
+      <p class="note">للطباعة من الهاتف: اضغط «طباعة» ليُجهَّز ملف PDF، ثم افتحه في عارض PDF واختر «طباعة».</p>
+      <a class="btn" data-asset="EHA_Rouster_Maker.apk" href="#">تحميل نسخة أندرويد</a>
+    </section>
+
+    <section class="card ios">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 5h2"/></svg>
+        هواتف آيفون <span class="tag">iPhone</span>
+      </h3>
+      <p class="sub">يُثبَّت من متصفح Safari كتطبيق على الشاشة الرئيسية، ويعمل بعدها دون إنترنت.</p>
+      <ol>
+        <li>افتح هذه الصفحة في متصفح <b>Safari</b> على الآيفون.</li>
+        <li>اضغط زر «فتح البرنامج على الآيفون» وانتظر اكتمال التحميل.</li>
+        <li>اضغط زر <b>المشاركة</b> (المربع والسهم للأعلى) أسفل الشاشة.</li>
+        <li>اختر <b>إضافة إلى الشاشة الرئيسية</b> ثم <b>إضافة</b>.</li>
+        <li>افتح البرنامج بعد ذلك من أيقونته على الشاشة الرئيسية.</li>
+      </ol>
+      <p class="note">يُحدَّث البرنامج تلقائياً عند فتحه أثناء الاتصال بالإنترنت، وتبقى الجداول محفوظة على الهاتف.</p>
+      <a class="btn" href="./">فتح البرنامج على الآيفون</a>
+    </section>
+  </div>
+
+  <div class="qr">
+    <img src="qr.png" alt="" />
+    امسح الرمز بكاميرا الهاتف لفتح هذه الصفحة على الهاتف
+  </div>
+</main>
+
+<footer>
+  جميع الحقوق محفوظة — الهيئة العامة للرعاية الصحية · برمجة وإنشاء: Dr / Hamdy Mahdy - RCM Department - El Tal Al-Kabir Hospital
+</footer>
+
+<script src="download.js"></script>
+</body>
+</html>
