@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self' data:; connect-src 'self' data: blob:; worker-src 'self' blob:; object-src 'none'; base-uri 'self'; form-action 'none'" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>EHA_ Rouster Maker — الموقع الرسمي</title>
+<meta name="description" content="برنامج إعداد جداول ورديات العاملين بالهيئة العامة للرعاية الصحية — استخدمه من المتصفح أو حمّل نسخة الحاسب أو أندرويد أو ثبّته على الآيفون." />
+<meta name="theme-color" content="#0f2744" />
+<link rel="icon" type="image/png" href="pwa-192x192.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<style>
+  :root {
+    --bg: #f4f6fa; --card: #ffffff; --ink: #0f172a; --muted: #475569; --line: #e2e8f0;
+    --navy: #0f2744; --navy2: #17365f; --gold: #c9a227; --gold-soft: #f6efd6;
+    --blue: #1d4ed8; --android: #15803d; --pc: #0369a1; --ios: #334155;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #0b1220; --card: #111a2e; --ink: #e2e8f0; --muted: #94a3b8; --line: #1f2a44; --gold-soft: #2a2512; }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: 'Segoe UI', Tahoma, 'Cairo', system-ui, -apple-system, sans-serif; line-height: 1.75;
+  }
+  html[lang='en'] body { line-height: 1.6; }
+  a { color: inherit; }
+
+  /* Top bar */
+  .topbar { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; }
+  .topbar-inner { max-width: 1040px; margin: 0 auto; padding: 14px 16px; display: flex; align-items: center; gap: 12px; }
+  .seal { width: 58px; height: 58px; border-radius: 50%; background: #fff; padding: 3px; box-shadow: 0 0 0 2px var(--gold); flex-shrink: 0; }
+  .brand { flex: 1; min-width: 0; }
+  .brand strong { display: block; font-size: 1.15rem; letter-spacing: .3px; }
+  .brand span { display: block; font-size: .82rem; color: #cbd5e1; }
+  .lang {
+    border: 1px solid rgba(255,255,255,.45); background: rgba(255,255,255,.08); color: #fff; border-radius: 999px;
+    padding: 6px 14px; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; white-space: nowrap;
+  }
+  .lang:hover { background: rgba(255,255,255,.18); }
+
+  /* Header band */
+  .band { background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #fff; text-align: center; padding: 26px 16px 78px; border-top: 1px solid rgba(255,255,255,.08); }
+  .band h1 { margin: 0 0 6px; font-size: 1.7rem; }
+  .band p { margin: 0 auto; max-width: 720px; color: #dbe4f0; font-size: .98rem; }
+  .gold-line { width: 84px; height: 3px; background: var(--gold); border-radius: 3px; margin: 14px auto 0; }
+
+  main { max-width: 1040px; margin: -54px auto 40px; padding: 0 16px; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; box-shadow: 0 10px 28px rgba(15, 23, 42, .07); }
+
+  /* About */
+  .about { border-top: 4px solid var(--gold); }
+  .about h2 { margin: 0 0 10px; font-size: 1.25rem; color: var(--navy2); }
+  @media (prefers-color-scheme: dark) { .about h2 { color: #93c5fd; } }
+  .about p { margin: 0 0 10px; font-size: 1rem; text-align: justify; }
+  .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(175px, 1fr)); gap: 10px; margin: 16px 0 12px; }
+  .feature { display: flex; gap: 10px; align-items: flex-start; background: var(--bg); border-radius: 12px; padding: 10px 12px; }
+  .feature svg { width: 22px; height: 22px; color: var(--gold); flex-shrink: 0; margin-top: 3px; }
+  .feature b { display: block; font-size: .93rem; }
+  .feature span { display: block; font-size: .82rem; color: var(--muted); }
+  .credit { margin: 6px 0 0; padding: 10px 12px; background: var(--gold-soft); border-radius: 10px; font-size: .88rem; }
+
+  /* Use online */
+  .hero { margin-top: 16px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+  .hero h2 { margin: 0; font-size: 1.12rem; }
+  .hero p { margin: 2px 0 0; color: var(--muted); font-size: .92rem; }
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none;
+    padding: 11px 20px; border-radius: 10px; font-weight: 700; color: #fff; background: var(--blue);
+    border: 0; font-size: 1rem; cursor: pointer; white-space: nowrap;
+  }
+  .btn:hover { filter: brightness(1.08); }
+
+  /* Install cards */
+  .section-title { margin: 26px 4px 10px; font-size: 1.12rem; color: var(--navy2); }
+  @media (prefers-color-scheme: dark) { .section-title { color: #93c5fd; } }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; }
+  .install { display: flex; flex-direction: column; padding: 18px; }
+  .install h3 { margin: 0 0 4px; font-size: 1.08rem; display: flex; align-items: center; gap: 8px; }
+  .install h3 svg { width: 22px; height: 22px; flex-shrink: 0; }
+  .install .sub { color: var(--muted); font-size: .87rem; margin: 0 0 12px; }
+  .steps { list-style: none; margin: 0 0 12px; padding: 0; }
+  .steps li { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-top: 1px dashed var(--line); font-size: .9rem; }
+  .steps li:first-child { border-top: 0; }
+  .steps img { flex-shrink: 0; border-radius: 8px; border: 1px solid var(--line); background: #f8fafc; }
+  .pc .steps img { width: 104px; }
+  .android .steps img, .ios .steps img { width: 58px; }
+  .num { display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; background: #f59e0b; color: #fff; font-size: .72rem; font-weight: 800; margin-inline-end: 6px; vertical-align: middle; }
+  .note { font-size: .82rem; color: var(--muted); background: var(--bg); border-radius: 8px; padding: 8px 10px; margin: 0 0 14px; }
+  .install .btn { margin-top: auto; }
+  .android .btn { background: var(--android); }
+  .pc .btn { background: var(--pc); }
+  .ios .btn { background: var(--ios); }
+  .tag { font-size: .7rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--bg); color: var(--muted); }
+
+  .qr { text-align: center; margin-top: 22px; color: var(--muted); font-size: .85rem; }
+  .qr img { width: 140px; height: 140px; background: #fff; padding: 6px; border-radius: 10px; display: block; margin: 0 auto 6px; }
+  /* Footer bar: the page's top colours, laid out like the app's footer */
+  .site-footer {
+    background: linear-gradient(135deg, var(--navy), var(--navy2)); color: #dbe4f0;
+    border-top: 3px solid var(--gold); box-shadow: inset 0 2px 6px rgba(0,0,0,.25); margin-top: 24px;
+  }
+  .site-footer-inner {
+    max-width: 1400px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center;
+    justify-content: space-between; gap: 12px; font-size: .78rem; line-height: 1.5;
+  }
+  .site-footer .group { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; }
+  .site-footer .emblem { width: 28px; height: 28px; flex-shrink: 0; }
+  .site-footer .strong { font-weight: 700; color: #fff; }
+  .site-footer .gold { font-weight: 700; color: #f1d67a; }
+  .site-footer .dot { color: var(--gold); opacity: .7; }
+  .site-footer .credit-line { font-size: .72rem; color: #cbd5e1; }
+  .rm-logo { display: inline-flex; align-items: center; gap: 6px; direction: ltr; }
+  .rm-logo .word { line-height: 1; }
+  .rm-logo .eha { font-weight: 900; font-size: 15px; color: #fff; }
+  .rm-logo .rm { font-weight: 900; font-size: 8px; color: #fff; letter-spacing: .08em; padding: 2px 3.5px; border-radius: 3px; background: linear-gradient(135deg, #22c3dc, #0f6d96); vertical-align: 2px; margin-left: 3px; }
+  .rm-logo .sub { display: block; font-weight: 700; font-size: 6px; letter-spacing: .24em; color: #67e8f9; margin-top: 3px; }
+  @media (max-width: 768px) {
+    .site-footer-inner { flex-direction: column; text-align: center; }
+    .site-footer .group { justify-content: center; }
+  }
+  @media (max-width: 520px) {
+    .band h1 { font-size: 1.35rem; }
+    .brand strong { font-size: 1rem; }
+    .brand span { font-size: .74rem; }
+    .seal { width: 48px; height: 48px; }
+    .card { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <img class="seal" src="eha-logo.png" alt="EHA" />
+    <div class="brand">
+      <strong>EHA_ Rouster Maker</strong>
+      <span data-ar="الهيئة العامة للرعاية الصحية" data-en="Egypt Healthcare Authority">الهيئة العامة للرعاية الصحية</span>
+    </div>
+    <button type="button" class="lang" id="lang-toggle" data-ar="English" data-en="العربية">English</button>
+  </div>
+</div>
+
+<div class="band">
+  <h1 data-ar="برنامج إعداد جداول ورديات العاملين" data-en="Staff Duty Roster Program">برنامج إعداد جداول ورديات العاملين</h1>
+  <p data-ar="الموقع الرسمي للبرنامج: استخدمه مباشرة من المتصفح، أو حمّل نسخة الحاسب الشخصي أو أندرويد، أو ثبّته على الآيفون." data-en="The program's official site: use it directly in your browser, download the PC or Android version, or install it on your iPhone.">الموقع الرسمي للبرنامج: استخدمه مباشرة من المتصفح، أو حمّل نسخة الحاسب الشخصي أو أندرويد، أو ثبّته على الآيفون.</p>
+  <div class="gold-line"></div>
+</div>
+
+<main>
+  <section class="card about">
+    <h2 data-ar="عن البرنامج" data-en="About the Program">عن البرنامج</h2>
+    <p data-ar="صُمِّم هذا الموقع وأُعِدَّ بواسطة [[د. حمدي مهدي]]، بالتعاون مع [[إدارة الموارد البشرية بمستشفى التل الكبير]]، التابع [[للهيئة العامة للرعاية الصحية (EHA)]]؛ وذلك بهدف تمكين الإدارات والأقسام المختلفة بالهيئة من إعداد جداول ورديات العاملين بيُسرٍ ودقة، وبأقل جهدٍ ممكن."
+       data-en="This website was designed and developed by [[Dr. Hamdy Mahdy]], in collaboration with the [[Human Resources Department of El Tal El Kabir Hospital]], part of the [[Egypt Healthcare Authority (EHA)]]. Its purpose is to enable the Authority's departments and units to prepare staff duty rosters with ease and precision, and with the least possible effort."></p>
+    <p data-ar="وقد جاء البرنامج ثمرةَ دراسةٍ متأنيةٍ للتحديات والعقبات التي تواجه القائمين على إعداد هذه الجداول، ليقدّم لها حلولاً عملية تُسهم في رفع كفاءة العمل وتنظيمه، وتوفير الوقت والجهد."
+       data-en="The program is the outcome of a careful study of the challenges and obstacles faced by those responsible for preparing these rosters, and offers practical solutions that raise the efficiency and organisation of their work while saving time and effort."></p>
+
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1"/><path d="M3 3l18 18"/></svg>
+        <div><b data-ar="يعمل دون إنترنت" data-en="Works offline">يعمل دون إنترنت</b><span data-ar="على الحاسب والهاتف بعد أول فتح" data-en="On PC and phone after the first visit">على الحاسب والهاتف بعد أول فتح</span></div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M6 14h12v7H6z"/></svg>
+        <div><b data-ar="طباعة رسمية وملفات PDF" data-en="Official printing and PDF">طباعة رسمية وملفات PDF</b><span data-ar="جدول متوافق وجاهز للطباعة على ورق A4" data-en="A print-ready table that fits A4 paper">جدول متوافق وجاهز للطباعة على ورق A4</span></div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        <div><b data-ar="تصدير واستيراد Excel" data-en="Excel export and import">تصدير واستيراد Excel</b><span data-ar="والبناء على جدول الشهر السابق" data-en="and building on last month's roster">والبناء على جدول الشهر السابق</span></div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+        <div><b data-ar="التدقيق التلقائي لساعات العمل" data-en="Automatic working-hours audit">التدقيق التلقائي لساعات العمل</b><span data-ar="الساعات الأسبوعية وأنظمة الورديات وفترات الراحة المفروضة بين الورديات" data-en="Weekly hours, shift systems and mandatory rest between shifts">الساعات الأسبوعية وأنظمة الورديات وفترات الراحة المفروضة بين الورديات</span></div>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+        <div><b data-ar="ترحيل الساعات المتبقية تلقائياً" data-en="Automatic hour carry-over">ترحيل الساعات المتبقية تلقائياً</b><span data-ar="حساب وإضافة ساعات العمل المتبقية للموظفين من الشهر السابق" data-en="Calculates and adds each employee's remaining hours from the previous month">حساب وإضافة ساعات العمل المتبقية للموظفين من الشهر السابق</span></div>
+      </div>
+    </div>
+
+    <p class="credit" data-ar="إعداد وتطوير: [[د. حمدي مهدي]] — بالتعاون مع إدارة الموارد البشرية بمستشفى التل الكبير — الهيئة العامة للرعاية الصحية"
+       data-en="Prepared and developed by [[Dr. Hamdy Mahdy]] — in collaboration with the Human Resources Department, El Tal El Kabir Hospital — Egypt Healthcare Authority"></p>
+  </section>
+
+  <section class="card hero">
+    <div>
+      <h2 data-ar="استخدام البرنامج مباشرة من المتصفح" data-en="Use the program directly in your browser">استخدام البرنامج مباشرة من المتصفح</h2>
+      <p data-ar="دون تثبيت، على الحاسب أو الهاتف. تُحفظ الجداول على جهازك، ويعمل البرنامج بعد أول فتح حتى دون إنترنت." data-en="No installation needed, on PC or phone. Rosters are saved on your device, and after the first visit the program works even without internet.">دون تثبيت، على الحاسب أو الهاتف. تُحفظ الجداول على جهازك، ويعمل البرنامج بعد أول فتح حتى دون إنترنت.</p>
+    </div>
+    <a class="btn" href="./" data-ar="فتح البرنامج الآن" data-en="Open the program">فتح البرنامج الآن</a>
+  </section>
+
+  <h2 class="section-title" data-ar="تحميل البرنامج وطريقة التثبيت" data-en="Download and installation">تحميل البرنامج وطريقة التثبيت</h2>
+  <div class="grid">
+    <section class="card install pc">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span data-ar="الحاسب الشخصي" data-en="Personal computer">الحاسب الشخصي</span> <span class="tag">Windows</span>
+      </h3>
+      <p class="sub" data-ar="ملف تثبيت واحد — نسخة كاملة تعمل دون إنترنت، مع الطباعة المتقدمة وحفظ PDF و Excel." data-en="One installer — the full version, working offline, with advanced printing and PDF and Excel saving."></p>
+      <ol class="steps">
+        <li><img src="guide/pc-1-download.svg" alt="" loading="lazy" /><div data-ar="اضغط زر [[تحميل نسخة الحاسب]] وانتظر اكتمال تحميل الملف [[EHA_Rouster_Maker_Setup.exe]]." data-en="Click [[Download for PC]] and wait for [[EHA_Rouster_Maker_Setup.exe]] to finish downloading."></div></li>
+        <li><img src="guide/pc-2-smartscreen.svg" alt="" loading="lazy" /><div data-ar="افتح الملف؛ إذا ظهرت رسالة «Windows protected your PC» اضغط [[More info]]." data-en="Open the file; if «Windows protected your PC» appears, click [[More info]]."></div></li>
+        <li><img src="guide/pc-3-run-anyway.svg" alt="" loading="lazy" /><div data-ar="اضغط [[Run anyway]] لبدء التثبيت (تظهر هذه الرسالة لأن البرنامج غير منشور على متجر Microsoft)." data-en="Click [[Run anyway]] to start the setup (this message appears because the program is not on the Microsoft Store)."></div></li>
+        <li><img src="guide/pc-4-install.svg" alt="" loading="lazy" /><div data-ar="اختر مكان التثبيت ثم اضغط [[Install]] وانتظر حتى ينتهي." data-en="Choose the install folder, click [[Install]] and wait until it finishes."></div></li>
+        <li><img src="guide/pc-5-shortcut.svg" alt="" loading="lazy" /><div data-ar="افتح البرنامج من [[الاختصار على سطح المكتب]] أو من قائمة ابدأ." data-en="Open the program from the [[desktop shortcut]] or the Start menu."></div></li>
+      </ol>
+      <p class="note" data-ar="تُحفظ الجداول في ذاكرة البرنامج على الجهاز، ولا تُحذف عند تحديث البرنامج أو إعادة تثبيته." data-en="Rosters are saved in the program's storage on the device and are kept when the program is updated or reinstalled."></p>
+      <a class="btn" data-asset="EHA_Rouster_Maker_Setup.exe" href="#" data-ar="تحميل نسخة الحاسب" data-en="Download for PC">تحميل نسخة الحاسب</a>
+    </section>
+
+    <section class="card install android">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="2"/><path d="M11 18h2"/></svg>
+        <span data-ar="هواتف أندرويد" data-en="Android phones">هواتف أندرويد</span> <span class="tag">APK</span>
+      </h3>
+      <p class="sub" data-ar="تطبيق كامل يعمل دون إنترنت، والتصدير والطباعة عبر قائمة المشاركة." data-en="A full app that works offline; exporting and printing go through the Share menu."></p>
+      <ol class="steps">
+        <li><img src="guide/android-1-download.svg" alt="" loading="lazy" /><div data-ar="من الهاتف اضغط [[تحميل نسخة أندرويد]]، وبعد اكتمال التحميل اضغط [[فتح]]." data-en="On the phone, tap [[Download for Android]], then tap [[Open]] when the download completes."></div></li>
+        <li><img src="guide/android-2-allow.svg" alt="" loading="lazy" /><div data-ar="إذا طُلب السماح بالتثبيت: اضغط الإعدادات وفعّل [[السماح من هذا المصدر]] ثم ارجع للخلف." data-en="If asked to allow installation: tap Settings, turn on [[Allow from this source]], then go back."></div></li>
+        <li><img src="guide/android-3-install.svg" alt="" loading="lazy" /><div data-ar="اضغط [[تثبيت]] وانتظر حتى ينتهي التثبيت." data-en="Tap [[Install]] and wait until it finishes."></div></li>
+        <li><img src="guide/android-4-protect.svg" alt="" loading="lazy" /><div data-ar="إذا ظهر تنبيه Google Play Protect اختر [[التثبيت على أي حال]] (التطبيق غير منشور على المتجر فقط)." data-en="If Google Play Protect warns you, choose [[Install anyway]] (the app is simply not on the Play Store)."></div></li>
+        <li><img src="guide/android-5-icon.svg" alt="" loading="lazy" /><div data-ar="افتح التطبيق من أيقونة [[EHA_ Rouster Maker]] على الشاشة الرئيسية." data-en="Open the app from the [[EHA_ Rouster Maker]] icon on the home screen."></div></li>
+      </ol>
+      <p class="note" data-ar="للطباعة من الهاتف: اضغط «طباعة» ليُجهَّز ملف PDF، ثم افتحه في عارض PDF واختر «طباعة»." data-en="To print from the phone: tap «Print» to prepare a PDF, then open it in a PDF viewer and choose «Print»."></p>
+      <a class="btn" data-asset="EHA_Rouster_Maker.apk" href="#" data-ar="تحميل نسخة أندرويد" data-en="Download for Android">تحميل نسخة أندرويد</a>
+    </section>
+
+    <section class="card install ios">
+      <h3>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M11 5h2"/></svg>
+        <span data-ar="هواتف آيفون" data-en="iPhone">هواتف آيفون</span> <span class="tag">iPhone</span>
+      </h3>
+      <p class="sub" data-ar="يُثبَّت من متصفح Safari كتطبيق على الشاشة الرئيسية، ويعمل بعدها دون إنترنت." data-en="Installed from Safari as an app on the Home Screen; it then works offline."></p>
+      <ol class="steps">
+        <li><img src="guide/ios-1-safari.svg" alt="" loading="lazy" /><div data-ar="افتح البرنامج في متصفح [[Safari]] بالضغط على «فتح البرنامج على الآيفون»، ثم اضغط زر [[المشاركة]] أسفل الشاشة." data-en="Open the program in [[Safari]] with «Open on iPhone», then tap the [[Share]] button at the bottom of the screen."></div></li>
+        <li><img src="guide/ios-2-share.svg" alt="" loading="lazy" /><div data-ar="اختر [[إضافة إلى الشاشة الرئيسية]] من القائمة." data-en="Choose [[Add to Home Screen]] from the menu."></div></li>
+        <li><img src="guide/ios-3-add.svg" alt="" loading="lazy" /><div data-ar="اضغط [[إضافة]] أعلى الشاشة." data-en="Tap [[Add]] at the top of the screen."></div></li>
+        <li><img src="guide/ios-4-icon.svg" alt="" loading="lazy" /><div data-ar="افتح البرنامج من أيقونته على [[الشاشة الرئيسية]]؛ ويعمل بعد ذلك دون إنترنت." data-en="Open the program from its icon on the [[Home Screen]]; it then works offline."></div></li>
+      </ol>
+      <p class="note" data-ar="يُحدَّث البرنامج تلقائياً عند فتحه أثناء الاتصال بالإنترنت، وتبقى الجداول محفوظة على الهاتف." data-en="The program updates automatically when opened online, and rosters stay saved on the phone."></p>
+      <a class="btn" href="./" data-ar="فتح البرنامج على الآيفون" data-en="Open on iPhone">فتح البرنامج على الآيفون</a>
+    </section>
+  </div>
+
+  <div class="qr">
+    <img src="qr.png" alt="" />
+    <span data-ar="امسح الرمز بكاميرا الهاتف لفتح هذه الصفحة على الهاتف" data-en="Scan the code with your phone's camera to open this page on the phone">امسح الرمز بكاميرا الهاتف لفتح هذه الصفحة على الهاتف</span>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer-inner">
+    <div class="group">
+      <img class="emblem" src="eha-emblem-96.png" alt="" />
+      <span class="strong" data-ar="الهيئة العامة للرعاية الصحية" data-en="Egypt Healthcare Authority">الهيئة العامة للرعاية الصحية</span>
+      <span class="dot">•</span>
+      <span data-ar="جمهورية مصر العربية" data-en="Arab Republic of Egypt">جمهورية مصر العربية</span>
+      <span class="dot">•</span>
+      <span class="gold" data-ar="جميع الحقوق محفوظة 2026" data-en="All rights reserved 2026">جميع الحقوق محفوظة 2026</span>
+      <span class="dot">•</span>
+      <span class="rm-logo" title="EHA (RM) — Roster Maker">
+        <svg width="28" height="28" viewBox="0 0 40 40" aria-hidden="true">
+          <defs><linearGradient id="rm-bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f6d96"/><stop offset="1" stop-color="#0a2f4d"/></linearGradient></defs>
+          <rect x="1" y="1" width="38" height="38" rx="9.5" fill="url(#rm-bg)"/>
+          <rect x="1.5" y="1.5" width="37" height="37" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.18"/>
+          <rect x="8" y="10.5" width="24" height="21.5" rx="3.5" fill="#ffffff"/>
+          <rect x="8" y="10.5" width="24" height="7" rx="3.5" fill="#22c3dc"/>
+          <rect x="8" y="14" width="24" height="3.5" fill="#22c3dc"/>
+          <rect x="13.2" y="7.5" width="2.6" height="5.6" rx="1.3" fill="#e6f8fb"/>
+          <rect x="24.2" y="7.5" width="2.6" height="5.6" rx="1.3" fill="#e6f8fb"/>
+          <rect x="10.8" y="19.8" width="5.2" height="4.4" rx="1.1" fill="#86cf55"/>
+          <rect x="17.4" y="19.8" width="5.2" height="4.4" rx="1.1" fill="#cfd8e3"/>
+          <rect x="24" y="19.8" width="5.2" height="4.4" rx="1.1" fill="#22c3dc"/>
+          <rect x="10.8" y="25.6" width="5.2" height="4.4" rx="1.1" fill="#22c3dc"/>
+          <rect x="17.4" y="25.6" width="5.2" height="4.4" rx="1.1" fill="#86cf55"/>
+          <rect x="24" y="25.6" width="5.2" height="4.4" rx="1.1" fill="#cfd8e3"/>
+        </svg>
+        <span class="word"><span class="eha">EHA</span><span class="rm">RM</span><span class="sub">ROSTER MAKER</span></span>
+      </span>
+    </div>
+    <div class="credit-line" data-ar="برمجة وإنشاء: Dr / Hamdy Mahdy - RCM Department - El Tal Al-Kabir Hospital" data-en="Developed by: Dr / Hamdy Mahdy - RCM Department - El Tal Al-Kabir Hospital">برمجة وإنشاء: Dr / Hamdy Mahdy - RCM Department - El Tal Al-Kabir Hospital</div>
+  </div>
+</footer>
+
+<script src="download.js"></script>
+</body>
+</html>
